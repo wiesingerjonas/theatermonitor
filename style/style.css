@@ -1,0 +1,26 @@
+body{
+  background-color: #252525;
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+
+  margin: 0;
+
+  color: #F7F7F7;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+header{
+  height: 10vh;
+  background-color: rgba(37, 37, 37, 0.8);
+}
+header img{
+  height: 8vh;
+  float: right;
+  margin: 1vh;
+  user-select: none;
+}
+.exit{
+  float: left;
+}

@@ -1,0 +1,26 @@
+#startLogo, #continue{
+  width: 20vw;
+  position: absolute;
+  left: 40vw;
+}
+#startLogo{
+  height: 40vh;
+  top: 20vh;
+}
+#continue{
+  height: 10vh;
+  color: black;
+  border: 1px solid darkgrey;
+  background-color: #F7F7F7;
+  top: 65vh;
+}
+#continue img{
+  margin-top: 1vh;
+  height: 8vh;
+  transform: rotate(180deg);
+}
+#bgImage{
+  min-width: 100%;
+  min-height: 100%;
+  background-color: red;
+}
