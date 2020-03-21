@@ -21,6 +21,11 @@
 
   </head>
   <body>
+
+    <div id="load">
+        <p>LADEVORGANG LÄUFT...</p>
+    </div>
+
     <header>
       <a href="../index.html"><img class="exit" src="../img/arrow_white.png"></a>
       <img id="suLoginButton" src="../img/logo_white.png">
@@ -252,6 +257,7 @@
             echo "<b>ungültige Eingabe</b>";
             $_SESSION['eingeloggt'] = false;
         }
+
     }
 
     if (isset($_POST['logout'])){

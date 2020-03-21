@@ -3,15 +3,17 @@ let d = new Date();
 window.addEventListener('load', () => {
 
   const xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {}
-  xhttp.open('POST', '../reqestData.php', true);
+  xhttp.open('POST', '../php/getData.php', true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhttp.send('req=dataRequest');
+  xhttp.send();
 
   xhttp.onreadystatechange = function() {
+
     if (this.readyState === 4 && this.status === 200) {
 
       let dates = JSON.parse(this.responseText);
+
+      sort(dates);
 
       let todaysIndex = getTodaysIndex(dates);
       let nextPlay = dates[todaysIndex][0];
@@ -75,9 +77,9 @@ window.addEventListener('load', () => {
           document.body.style.backgroundImage = "url('../img/stueckbilder/noImageYet.png')";
           break;
 
-        case "Cinderekka":
+        case "Cinderella":
           writeCast(castCinderella);
-          document.body.style.backgroundImage = "url('../img/stueckbilder/noImageYet.png')";
+          document.body.style.backgroundImage = "url('../img/stueckbilder/cinderella.png')";
           break;
       }
 
@@ -285,7 +287,7 @@ function getTodaysIndex(dates) {
   }
 }
 
-function changeInfo(play){
+function changeInfo(play) {
   let infoBox = document.getElementById('info');
 
   let title = document.createElement("h1");
@@ -407,7 +409,7 @@ function changeInfo(play){
 
     case "Wir sind Musical!":
       let infoWirSindMusical = document.createElement("p");
-      let infoTextWirSindMusical = document.createTextNode("" +
+      let infoTextWirSindMusical = document.createTextNode(
           "Nach den konzertant dargebotenen Musicals On The Town und Chess im Großen Saal des Musiktheaters " +
           "und den komplett ausverkauften „Showtimes“ Seven in Heaven, " +
           "The World Goes ’Round und Forever Young in der BlackBox und BlackBox Lounge " +
@@ -425,7 +427,7 @@ function changeInfo(play){
 
     case "Unter dem Gletscher":
       let infoUnterDemGletscher = document.createElement("p");
-      let infoTextUnterDemGletscher = document.createTextNode("" +
+      let infoTextUnterDemGletscher = document.createTextNode(
           "Nachdem der isländische Autor Halldór Laxness 1955 den Literaturnobelpreis erhalten hatte, " +
           "erschien nach vielen weiteren lesenswerten und viel beachteten Werken 1968 sein Roman Am Gletscher. " +
           "Hier wird man Zeuge einer Reise in die isländische Provinz, " +
@@ -440,6 +442,7 @@ function changeInfo(play){
       break;
 
     case "Parsifal":
+
       let infoParsifal = document.createElement("p");
       let infoTextParsifal = document.createTextNode("" +
           "Parsifal – das ist die Schöpfung, mit der sich Richard Wagner als Künstler von der Welt verabschiedete. " +
@@ -458,7 +461,7 @@ function changeInfo(play){
 
     case "Cinderella":
       let infoCinderella = document.createElement("p");
-      let infoTextCinderella = document.createTextNode("" +
+      let infoTextCinderella = document.createTextNode(
           "Ausgerechnet unter der strengen Knute des Stalinismus schrieb Sergej Prokofjew Anfang der 1940er-Jahre " +
           "eine der stärksten Ballettmusiken überhaupt. " +
           "Unter dem Titel Soluschka (Aschenputtel) " +
@@ -470,13 +473,13 @@ function changeInfo(play){
           "Weder Stiefmutter noch Stiefschwestern können einen Menschen aufhalten, " +
           "der unbeirrt den eigenen Träumen vertraut und sich von ihnen leiten lässt.");
 
-      infoParsifal.appendChild(infoTextParsifal);
-      infoBox.appendChild(infoParsifal);
+      infoCinderella.appendChild(infoTextCinderella);
+      infoBox.appendChild(infoTextCinderella);
       break;
   }
 }
 
-function writeCast(names){
+function writeCast(names) {
   for (let i = 0; i < names.length; i++) {
     const contentWrapper = document.getElementById('cast');
     const newRow = document.createElement('div');
@@ -495,4 +498,24 @@ function writeCast(names){
     newRow.classList.add('castRow');
     contentWrapper.appendChild(newRow);
   }
+}
+
+function sort(dates) {
+  for (let i = 0; i < dates.length; i++) {
+
+    for (let j = 1; j < dates.length-1; j++) {
+
+      let formerDate = dates[j-1][1].split('.')[2] * 10000 + dates[j-1][1].split('.')[1] * 100 + dates[j-1][1].split('.')[0];
+      let date = dates[j][1].split('.')[2] * 10000 + dates[j][1].split('.')[1] * 100 + dates[j][1].split('.')[0];
+
+      if(formerDate > date) {
+
+        let temp = dates[j-1];
+        dates[j-1] = dates[j];
+        dates[j] = temp;
+      }
+    }
+  }
+
+  document.getElementById("load").style.display = "none";
 }

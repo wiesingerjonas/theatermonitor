@@ -20,36 +20,33 @@
     session_start();
 
     if (isset($_SESSION['eingeloggt']) && $_SESSION['eingeloggt'] == true) {
+        ?>
 
-        echo "<div id=\"surveyResult\">";
+        <div id="surveyResult">
+            <h2>ANZAHL DER BESUCHE PRO SAISON</h2>
+            <div id="visitChart"></div>
 
-        echo "<h2>ANZAHL DER BESUCHE PRO SAISON</h2>";
-        echo "<div id=\"visitChart\"></div>";
+            <h2>ICH KOMME</h2>
+            <div id="accompanimentChart"></div>
 
-        echo "<h2>ICH KOMME</h2>";
-        echo "<div id=\"accompanimentChart\"></div>";
+            <h2>ICH REISE AN MIT</h2>
+            <div id="approachChart"></div>
 
-        echo "<h2>ICH REISE AN MIT</h2>";
-        echo "<div id=\"approachChart\"></div>";
+            <h2>ALS AUTOFAHRER/IN PARKE ICH IN</h2>
+            <div id="parkChart"></div>
 
-        echo "<h2>ALS AUTOFAHRER/IN PARKE ICH IN</h2>";
-        echo "<div id=\"parkChart\"></div>";
+            <h2>ENTFERNUNG ZU MEINEM WOHNORT</h2>
+            <div id="distanceChart"></div>
 
-        echo "<h2>ENTFERNUNG ZU MEINEM WOHNORT</h2>";
-        echo "<div id=\"distanceChart\"></div>";
+            <h2>MEIN ALTER (IN JAHREN)</h2>
+            <div id="ageChart"></div>
 
-        echo "<h2>MEIN ALTER (IN JAHREN)</h2>";
-        echo "<div id=\"ageChart\"></div>";
-
-        echo "<h2>MEIN GESCHLECHT</h2>";
-        echo "<div id=\"genderChart\"></div>";
-
-        echo "</div>";
-
+            <h2>MEIN GESCHLECHT</h2>
+            <div id="genderChart"></div>
+        </div>
+        <?php
 
     } else {
-        header("HTTP/1.1 403 Forbidden");
-
         echo "<h1>Sie müssen eingeloggt sein!</h1>";
 
         exit();

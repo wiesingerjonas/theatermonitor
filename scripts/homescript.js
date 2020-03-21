@@ -129,6 +129,17 @@ addEventListener('load', () => {
   });
 
   suLoginButton.addEventListener('click', () => {
+
+    showLogin();
+
+  });
+
+  document.getElementById('suLoginX').addEventListener("click", () => {
+    isSuLoginBoxVisible = false;
+    suLoginBox.style.display = "none";
+  });
+
+  function showLogin(){
     if(!isSuLoginBoxVisible){
       suLoginBox.style.display = 'block';
       const suLogin = document.getElementById("suLogin");
@@ -150,11 +161,5 @@ addEventListener('load', () => {
     isEventsBoxVisible = false;
     isSurveyBoxVisible = false;
     isImagesBoxVisible = false;
-  });
-
-  document.getElementById('suLoginX').addEventListener("click", () => {
-    isSuLoginBoxVisible = false;
-    suLoginBox.style.display = "none";
-  });
-
+  }
 });

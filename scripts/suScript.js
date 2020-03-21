@@ -1,3 +1,7 @@
+const options = {
+  colors: ['#4e4e4e', '#696969', '#8c8c8c', '#a3a2a2', '#c2c2c2', '#d9d7d7']
+};
+
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawVisitChart);
 
@@ -29,7 +33,7 @@ function drawVisitChart() {
   ]);
 
   let chart = new google.visualization.PieChart(document.getElementById('visitChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 
 }
 
@@ -45,7 +49,7 @@ function drawAccompanimentChart() {
 
 
   let chart = new google.visualization.PieChart(document.getElementById('accompanimentChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 
 }
 
@@ -62,7 +66,7 @@ function drawApproachChart() {
 
 
   let chart = new google.visualization.PieChart(document.getElementById('approachChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 
 }
 
@@ -77,7 +81,7 @@ function drawParkChart() {
 
 
   let chart = new google.visualization.PieChart(document.getElementById('parkChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 
 }
 
@@ -91,7 +95,7 @@ function drawDistanceChart() {
   ]);
 
   let chart = new google.visualization.PieChart(document.getElementById('distanceChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 }
 
 function drawAgeChart() {
@@ -105,7 +109,7 @@ function drawAgeChart() {
   ]);
 
   let chart = new google.visualization.PieChart(document.getElementById('ageChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 }
 
 function drawGenderChart() {
@@ -117,5 +121,5 @@ function drawGenderChart() {
   ]);
 
   let chart = new google.visualization.PieChart(document.getElementById('genderChart'));
-  chart.draw(data);
+  chart.draw(data, options);
 }

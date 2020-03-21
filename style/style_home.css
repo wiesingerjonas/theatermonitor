@@ -113,6 +113,8 @@ nav div:hover{
 }
 #survey .answers p{
   padding: 0 2vw 0 2vw;
+  top: 15% !important;
+  position: relative;
 }
 #survey .surveyNav .nextQuestion{
   float: right;
@@ -191,4 +193,18 @@ nav div:hover{
 }
 #secretLink {
   color: lightgray;
+}
+
+#load {
+  position: absolute;
+  color: #4e4e4e;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#load p{
+  flex: 0 0 auto;
+  font-size: 5vh;
 }
